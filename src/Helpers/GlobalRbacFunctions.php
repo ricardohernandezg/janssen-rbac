@@ -19,4 +19,8 @@ if (!class_exists('Janssen\App')) {
 
 } 
 
-throw new Exception("hola",500);
+if (!extension_loaded('redis')) {
+
+    throw New \Exception('This package needs Redis to work', 500);
+
+} 
