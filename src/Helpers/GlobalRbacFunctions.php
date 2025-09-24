@@ -2,6 +2,8 @@
 
 namespace Janssen\Helpers;
 
+use Janssen\App;
+use Janssen\Engine\Config;
 use Exception;
 
 /**
@@ -18,6 +20,11 @@ if (!class_exists('Janssen\App')) {
     throw New \Exception('This package must run inside Janssen App', 500);
 
 } 
+
+// load rbac config
+$rbac_conf_candidate = App::getPathCandidate('rbac');
+Config::setAll((is_file($rbac_conf_candidate)) ? (include $rbac_conf_candidate) : []);
+self::$engine_config = Config::get();
 
 if (!extension_loaded('redis')) {
 
