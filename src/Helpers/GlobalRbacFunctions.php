@@ -5,7 +5,6 @@ namespace Janssen\Helpers;
 use Janssen\App;
 use Janssen\Engine\Config;
 use Janssen\Engine\Event;
-use Janssen\Helpers\Database;
 use Exception;
 
 /**
